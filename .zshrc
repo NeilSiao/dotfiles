@@ -18,6 +18,8 @@ HIST_STAMPS="yyyy-mm-dd"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git, tmux)
 
+source $ZSH_CUSTOM/powerlevel9k_setting;
+
 # User configuration
 host=$(command hostname)
 case $host in
@@ -28,60 +30,17 @@ case $host in
     "raychang-MacbookPro.local")
         ZSH="$HOME/.oh-my-zsh"
         export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/texbin:$HOME/.composer/vendor/bin
-        export EDITOR=/usr/local/bin/vim
+        export EDITOR=/usr/local/Cellar/vim
         ;;
     *)
-        ZSH_THEME="ray"
+        #ZSH_THEME="ray"
+        ZSH_THEME="powerlevel9k/powerlevel9k"
         ;;
 esac
 
 source $ZSH/oh-my-zsh.sh
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-alias mk="make"
-alias g='grep --color=auto -rin'
-alias delswp="findswp; find . -name '*.swp' | xargs rm"
-alias composer='php -d allow_url_fopen=On ~/bin/composer.phar'
-
-alias moshirc='mosh --ssh="ssh -p 222" raychang@irc.pixnet.tw'
-alias v='vim'
-alias gst='git status'
-alias gci='git commit -m'
-alias gad='git add'
-alias gcia='git commit --amend'
-alias gco='git checkout'
-alias gdf='git diff'
-alias gdfc='git diff --cached'
-
-# rebase
-alias grb='git rebase'
-alias grbc='git rebase --continue'
-alias grba='git rebase --abort'
-#
-# # cherry-pick
- alias gcherry='git cherry-pick'
-# #clean
- alias gclean='git clean -df'
-
-alias gbr='git branch'
-alias gadp='git add . -p'
-
-alias gshu='git stash -u'
-alias gshp='git stash pop'
-alias mysqlstart='mysql.server start'
-alias ll='ls -ahlF'
-
-alias renamephp='for file in *.html ; do mv "$file" "${file/.html/.php}"; done'
-alias chmodfolder='find * -type d -print0 | xargs -0 chmod 0755'
-alias chmodfile='find . -type f -print0 | xargs -0 chmod 0644'
+source $ZSH_CUSTOM/zsh_alias;
 
 export PATH="./node_modules/.bin:/usr/local/sbin:$PATH"
 
