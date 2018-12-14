@@ -2,6 +2,7 @@
 export ZSH=$HOME/.oh-my-zsh
 export PROFILE="$HOME/myprofile"
 export LANG=en_US.UTF-8
+export PATH="/usr/local/opt/php@7.0/bin:$PATH"
 
 ZSH_CUSTOM=$HOME/myprofile
 
@@ -16,7 +17,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git, tmux)
+plugins=(git zsh-completions zsh-autosuggestions fast-syntax-highlighting)
 
 source $ZSH_CUSTOM/powerlevel9k_setting;
 
@@ -40,7 +41,7 @@ esac
 
 source $ZSH/oh-my-zsh.sh
 
-source $ZSH_CUSTOM/zsh_alias;
+source $ZSH_CUSTOM/zsh_bootstrap;
 
 export PATH="./node_modules/.bin:/usr/local/sbin:$PATH"
 
@@ -49,3 +50,5 @@ if [ -f '/Users/raychang/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/r
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/raychang/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/raychang/google-cloud-sdk/completion.zsh.inc'; fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

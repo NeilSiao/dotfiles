@@ -1,0 +1,62 @@
+function cdl
+{
+    cd "$1" | ls;
+}
+
+function kuexe
+{
+    kubectl exec -it "$1" bash;
+}
+
+function kuexeg
+{
+    kuexe $(kugp | grep api | awk '{print $1}')
+}
+
+function artisanseed
+{
+    php artisan db:seed --class="$1"
+}
+
+works() { cd $HOME/work/$1; }
+compctl -W $HOME/work/ -f works
+
+# branch control
+function new_ticket
+{
+    if [[ -z "$1" ]] ;then
+        echo "new_ticket: No ticket number specified!";
+        echo "usage: new_ticket [TICKET_NUM] [checkout]";
+    else
+        echo "git push origin master:ticket$1";
+        git push origin master:ticket$1;
+        if [[ -z "$2" ]] ;then
+            git checkout ticket$1;
+        fi
+    fi
+}
+
+function rm_ticket
+{
+    if [[ -z "$1" ]] ;then
+        ticket=$(tmux display-message -p '#S');
+        echo "rm_ticket: No ticket number specified!";
+        echo "use current tmux session name $ticket";
+    else
+        ticket=$1;
+    fi
+    echo "git push origin :ticket$ticket";
+    git push origin :ticket$ticket;
+    echo "git branch -d ticket$ticket";
+    git branch -d ticket$ticket;
+}
+
+function seedclass
+{
+    php artisan db:seed --class=$1
+}
+
+function cht
+{
+     curl cht.sh/$1;
+}
