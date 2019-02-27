@@ -1,14 +1,10 @@
-# vim: sw=4 ts=4
-[user]
-	name = Ray Chang
-	email = raychang@pixnet.tw
 [color]
-	ui = auto
-	diff = auto
-	status = auto
-	branch = auto
+	ui = true
+    diff = auto
+    status = auto
+    branch = auto
 [push]
-	default = current
+    default = current
 [alias]
     cm = commit -a
     st = status
@@ -16,3 +12,22 @@
     br = branch
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
     lg2  = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
+[user]
+	name = Ray Chang
+	email = raychang@pixnet.tw
+[core]
+	editor = vim
+	pager = diff-so-fancy | less --tabs=4 -RFX
+    ignorecase = false
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = yellow
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
