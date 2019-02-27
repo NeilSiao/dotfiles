@@ -10,7 +10,7 @@ function kuexe
 
 function kuexeg
 {
-    kuexe $(kugp | grep api | awk '{print $1}')
+    kuexe $(kugp | grep $1 | awk '{print $1}')
 }
 
 function artisanseed

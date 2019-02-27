@@ -1,3 +1,3 @@
-source zsh_alias;
-source zsh_functions;
-
+source $ZSH_CUSTOM/powerlevel9k_setting;
+source $ZSH_CUSTOM/zsh_alias;
+source $ZSH_CUSTOM/zsh_functions;

@@ -17,9 +17,9 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-completions zsh-autosuggestions fast-syntax-highlighting)
+plugins=(git zsh-completions zsh-autosuggestions fast-syntax-highlighting composer)
 
-source $ZSH_CUSTOM/powerlevel9k_setting;
+source $ZSH_CUSTOM/zsh_bootstrap;
 
 # User configuration
 host=$(command hostname)
@@ -40,8 +40,6 @@ case $host in
 esac
 
 source $ZSH/oh-my-zsh.sh
-
-source $ZSH_CUSTOM/zsh_bootstrap;
 
 export PATH="./node_modules/.bin:/usr/local/sbin:$PATH"
 
