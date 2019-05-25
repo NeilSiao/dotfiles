@@ -1,3 +1,33 @@
-source $ZSH_CUSTOM/powerlevel9k_setting;
 source $ZSH_CUSTOM/zsh_alias;
+source $ZSH_CUSTOM/powerlevel9k_setting;
 source $ZSH_CUSTOM/zsh_functions;
+
+
+zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zdharma/fast-syntax-highlighting"
+zplug "rawkode/zsh-docker-run"
+zplug "arzzen/calc.plugin.zsh"
+zplug "tysonwolker/iterm-tab-colors"
+zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
+zplug "b4b4r07/enhancd", use:init.sh
+zplug "junegunn/fzf-bin", \
+    from:gh-r, \
+    as:command, \
+    rename-to:fzf, \
+    use:"*darwin*amd64*"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+
+
+# Install packages that have not been installed yet
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    else
+        echo
+    fi
+fi
+
+zplug load;
+

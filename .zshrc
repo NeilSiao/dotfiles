@@ -1,23 +1,12 @@
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
+
 export PROFILE="$HOME/myprofile"
 export LANG=en_US.UTF-8
 export PATH="/usr/local/opt/php@7.0/bin:$PATH"
 
 ZSH_CUSTOM=$HOME/myprofile
-
-DISABLE_AUTO_TITLE="true"
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-
-HIST_STAMPS="yyyy-mm-dd"
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-completions zsh-autosuggestions fast-syntax-highlighting composer)
 
 source $ZSH_CUSTOM/zsh_bootstrap;
 
@@ -38,8 +27,6 @@ case $host in
         ZSH_THEME="powerlevel9k/powerlevel9k"
         ;;
 esac
-
-source $ZSH/oh-my-zsh.sh
 
 export PATH="./node_modules/.bin:/usr/local/sbin:$PATH"
 
