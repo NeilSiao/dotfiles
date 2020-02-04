@@ -9,7 +9,9 @@ zplug "zdharma/fast-syntax-highlighting"
 zplug "rawkode/zsh-docker-run"
 zplug "arzzen/calc.plugin.zsh"
 zplug "tysonwolker/iterm-tab-colors"
-zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
+zplug romkatv/powerlevel10k, as:theme, depth:1
+zplug "plugins/kubectl",   from:oh-my-zsh, defer:2
+zplug "hschne/fzf-git", defer:2
 zplug "b4b4r07/enhancd", use:init.sh
 zplug "junegunn/fzf-bin", \
     from:gh-r, \
@@ -30,4 +32,3 @@ if ! zplug check --verbose; then
 fi
 
 zplug load;
-
