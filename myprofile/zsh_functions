@@ -1,8 +1,3 @@
-function cdl
-{
-    cd "$1" | ls;
-}
-
 function kuexe
 {
     kubectl exec -it "$1" bash;
@@ -59,4 +54,38 @@ function seedclass
 function cht
 {
      curl cht.sh/$1;
+}
+
+function runimage
+{
+    docker run -i -p $2 -t $1;
+}
+
+function gcotarget
+{
+    gco $(tmux display-message -p '#W');
+}
+
+function to_date()
+{
+    if [[ -z "$1" ]] ;then
+        echo "No unixtime specified!";
+    else
+        date -jf '%s' "$1" +"%Y-%m-%d %H:%M:%S"
+    fi
+}
+
+function to_unix()
+{
+    date -jf '%Y%m%d%H%M%S' "$1" +%s;
+}
+
+function rmswp()
+{
+    cd ~/.local/share/nvim/swap & rm *.swp;
+}
+
+function killevidpod()
+{
+    kubectl get pods --field-selector=status.phase=Failed | awk '{ if(NR>1)print $1}' | xargs kubectl delete pods
 }
