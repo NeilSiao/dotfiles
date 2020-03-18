@@ -2,33 +2,34 @@ source $ZSH_CUSTOM/zsh_alias;
 source $ZSH_CUSTOM/powerlevel9k_setting;
 source $ZSH_CUSTOM/zsh_functions;
 
+zinit light zsh-users/zsh-autosuggestions
+zinit light zdharma/fast-syntax-highlighting
 
-zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zdharma/fast-syntax-highlighting"
-zplug "rawkode/zsh-docker-run"
-zplug "arzzen/calc.plugin.zsh"
-zplug "tysonwolker/iterm-tab-colors"
-zplug romkatv/powerlevel10k, as:theme, depth:1
-zplug "plugins/kubectl",   from:oh-my-zsh, defer:2
-zplug "hschne/fzf-git", defer:2
-zplug "b4b4r07/enhancd", use:init.sh
-zplug "junegunn/fzf-bin", \
-    from:gh-r, \
-    as:command, \
-    rename-to:fzf, \
-    use:"*darwin*amd64*"
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zinit ice depth=1; zinit light romkatv/powerlevel10k
+
+# Binary release in archive, from GitHub-releases page.
+# After automatic unpacking it provides program "fzf".
+zinit ice from"gh-r" as"program"
+zinit load junegunn/fzf-bin
+
+# Scripts that are built at install (there's single default make target, "install",
+# and it constructs scripts by `cat'ing a few files). The make'' ice could also be:
+# `make"install PREFIX=$ZPFX"`, if "install" wouldn't be the only, default target.
+zinit ice as"program" pick"$ZPFX/bin/git-*" make"PREFIX=$ZPFX"
+zinit light tj/git-extras
+
+zinit snippet OMZ::plugins/kubectl/kubectl.plugin.zsh
+
+zinit ice as"completion"
+zinit snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
 
 
-# Install packages that have not been installed yet
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    else
-        echo
-    fi
-fi
+zinit ice atclone"dircolors -b LS_COLORS > c.zsh" atpull'%atclone' pick"c.zsh" nocompile'!'
+zinit light trapd00r/LS_COLORS
 
-zplug load;
+zinit ice lucid wait='0'
+zinit light zsh-users/zsh-completions
+
+zinit snippet OMZ::lib/completion.zsh
+DISABLE_LS_COLORS=true
+export FZF_DEFAULT_COMMAND='fd --type f'
