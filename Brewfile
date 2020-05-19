@@ -44,4 +44,7 @@ brew "zsh"
 brew "zsh-completions"
 brew "httpstat"
 brew "grc"
-
+brew "zlib"
+brew "memcached"
+brew "composer"
+brew "navi"
