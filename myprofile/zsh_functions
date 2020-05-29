@@ -23,10 +23,10 @@ function new_ticket
         echo "new_ticket: No ticket number specified!";
         echo "usage: new_ticket [TICKET_NUM] [checkout]";
     else
-        echo "git push origin master:ticket$1";
-        git push origin master:ticket$1;
+        echo "git push origin master:$1";
+        git push origin master:$1;
         if [[ -z "$2" ]] ;then
-            git checkout ticket$1;
+            git checkout $1;
         fi
     fi
 }
@@ -42,8 +42,8 @@ function rm_ticket
     fi
     echo "git push origin :ticket$ticket";
     git push origin :ticket$ticket;
-    echo "git branch -d ticket$ticket";
-    git branch -d ticket$ticket;
+    echo "git branch -d $ticket";
+    git branch -d $ticket;
 }
 
 function seedclass
@@ -89,3 +89,6 @@ function killevidpod()
 {
     kubectl get pods --field-selector=status.phase=Failed | awk '{ if(NR>1)print $1}' | xargs kubectl delete pods
 }
+
+source $ZSH_CUSTOM/functions/develop_flows
+source $ZSH_CUSTOM/functions/docker

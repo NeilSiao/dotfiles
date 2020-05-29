@@ -2,7 +2,8 @@ source $ZSH_CUSTOM/zsh_alias;
 source $ZSH_CUSTOM/powerlevel9k_setting;
 source $ZSH_CUSTOM/zsh_functions;
 
-# - - - - - - - - - - - - - - - - - - - -
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+ #- - - - - - - - - - - - - - - - - - - -
 # # Zinit Configuration
 # # - - - - - - - - - - - - - - - - - - - -
 __ZINIT="${ZDOTDIR:-$HOME}/.zinit/bin/zinit.zsh"
@@ -71,6 +72,9 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*:functions' ignored-patterns '(_*|pre(cmd|exec))'
 zstyle ':completion:*' rehash true
+
+zinit ice lucid from"gh-r" as"program" mv"bat* -> bat" pick"bat/bat"
+zinit light sharkdp/bat
 
 zinit wait lucid light-mode for \
     OMZ::lib/completion.zsh \

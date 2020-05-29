@@ -15,7 +15,7 @@ alias delswp="findswp; find . -name '*.swp' | xargs rm"
 alias pbre='php ~/myprofile/phabricommit'
 
 alias moshirc='mosh --ssh="ssh -p 222" raychang@irc.pixnet.tw'
-alias v='vim'
+alias v='nvim'
 
 alias gprb='git pull --rebase origin master'
 alias gst='git status'
@@ -63,3 +63,7 @@ alias kugp="kubectl get pods";
 alias portstate="netstat -anp tcp"
 
 alias runlocal='php -S localhost:8081 -t public/'
+
+alias phpcs='php ~/work/testpath/phpcs.phar --standard=PSR2'
+
+alias cat="bat --theme=\$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo default || echo GitHub)"

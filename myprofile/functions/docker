@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+function dockerkillall
+{
+    docker kill $(docker ps -a | awk '{print $1}')
+    #docker kill -f $(docker ps -aq)
+}
+function dockerrmall
+{
+    #docker rm -f $(docker ps -aq)
+    docker rm $(docker ps -a | awk '{print $1}')
+}
+
+

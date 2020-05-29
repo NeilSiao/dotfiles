@@ -1,0 +1,49 @@
+#!/usr/bin/env sh
+COLOR_RED="\033[1;31m"
+COLOR_GREEN="\033[1;32m"
+
+source ~/work/release/setting.sh
+
+function open_github()
+{
+    open http://github.com/$(git config --get remote.origin.url | awk -F '[:.]' '{print $3}');
+}
+
+function new_feature()
+{
+    branchName="feature/$1";
+    gco develop
+    git pull
+    git push origin develop:$branchName
+    gco $branchName
+}
+function new_release()
+{
+    branchName="release/$1"
+    gco develop
+    git pull
+    git push origin develop:$branchName
+    gco $branchName
+}
+function merge_release()
+{
+    branchName=$(git rev-parse --abbrev-ref HEAD | awk -F "/" '{print $1}')
+    if [[ "release" != $branchName ]] ; then
+        echo "$COLOR_RED 請切到 release branch !!"
+    fi
+    for feature in $releaseBranches; do
+        git merge $feature --no-ff
+    done
+    echo "$COLOR_GREEN release branches merge 完成 !!"
+}
+
+function new_hotfix()
+{
+    #hotfix/vipop-XXXX
+    branchName="hotfix/$1"
+    git push origin master:$branchName
+    echo "修復完成後，發PR至 rc/automatic 進行Lab驗收"
+    #Lab驗收完成後，於 hotfix/vipop-XXXX 分支發PR至 release/automatic 進行Staging驗收
+    # Staging驗收完成後，於 hotfix/vipop-XXXX 分支發PR至 master 準備上線，Reviewer標記 104QA 與 一名工程 ，並且Assignee標記 主管
+    # 待 主管 Merge上線後，於 hotfix/vipop-XXXX 分支發PR至 develop 進行合併。
+}
