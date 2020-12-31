@@ -17,6 +17,7 @@ alias pbre='php ~/myprofile/phabricommit'
 alias moshirc='mosh --ssh="ssh -p 222" raychang@irc.pixnet.tw'
 alias v='nvim'
 
+alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 alias gprb='git pull --rebase origin master'
 alias gst='git status'
 alias gci='git commit -m'
@@ -25,6 +26,7 @@ alias gcia='git commit --amend'
 alias gco='git checkout'
 alias gdf='git diff'
 alias gdfc='git diff --cached'
+alias gcfp='git cat-file -p'
 
 # rebase
 alias grb='git rebase'
@@ -64,6 +66,6 @@ alias portstate="netstat -anp tcp"
 
 alias runlocal='php -S localhost:8081 -t public/'
 
-alias phpcs='php ~/work/testpath/phpcs.phar --standard=PSR2'
+alias phpcs='php ~/work/testpath/phpcs.phar'
 
 alias cat="bat --theme=\$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo default || echo GitHub)"

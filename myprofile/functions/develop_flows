@@ -17,6 +17,15 @@ function new_feature()
     git push origin develop:$branchName
     gco $branchName
 }
+function rm_feature()
+{
+    branchName="feature/$1";
+    echo "git push origin :$branchName";
+    git push origin :$branchName;
+    echo "git branch -d $branchName";
+    git branch -d $branchName;
+}
+
 function new_release()
 {
     branchName="release/$1"

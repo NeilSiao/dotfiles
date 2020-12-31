@@ -14,6 +14,6 @@ fi
 # ------------
 source "/usr/local/opt/fzf/shell/key-bindings.zsh"
 
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude "(.git|node_modules)" . ~/work/'
-export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(vim {})+abort'"
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude "(.git|node_modules|vendor)" . ~/work/'
+export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(v {})+abort'"
 export FZF_CTRL_T_OPTS="--preview '(bat --color \"always\" {}) 2> /dev/null | head -200'"
