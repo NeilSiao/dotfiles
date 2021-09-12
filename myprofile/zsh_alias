@@ -27,6 +27,7 @@ alias gco='git checkout'
 alias gdf='git diff'
 alias gdfc='git diff --cached'
 alias gcfp='git cat-file -p'
+alias glog='git log --oneline --graph -n 15'
 
 # rebase
 alias grb='git rebase'
