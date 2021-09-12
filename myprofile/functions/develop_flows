@@ -2,7 +2,8 @@
 COLOR_RED="\033[1;31m"
 COLOR_GREEN="\033[1;32m"
 
-source ~/work/release/setting.sh
+# dont have this neil.
+#source ~/work/release/setting.sh
 
 function open_github()
 {
