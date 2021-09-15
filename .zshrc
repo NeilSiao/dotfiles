@@ -56,4 +56,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
+# add my own zsh-theme
 source "$ZSH_CUSTOM/themes/neil.p10k.zsh-theme"
+
+# setting visual studio code 
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
