@@ -70,3 +70,6 @@ alias runlocal='php -S localhost:8081 -t public/'
 alias phpcs='php ~/work/testpath/phpcs.phar'
 
 alias cat="bat --theme=\$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo default || echo GitHub)"
+
+# mac list today unlock screen time
+alias clockin="sudo log show --style syslog --last 1d | awk '/Enter/ && /unlockUIBecomesActive/ {print \$1 \" \" \$2}'"
