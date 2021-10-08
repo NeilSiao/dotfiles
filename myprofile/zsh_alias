@@ -28,7 +28,7 @@ alias gdf='git diff'
 alias gdfc='git diff --cached'
 alias gcfp='git cat-file -p'
 alias glog='git log --oneline --graph -n 15'
-
+alias gb='git branch'
 # rebase
 alias grb='git rebase'
 alias grbc='git rebase --continue'
