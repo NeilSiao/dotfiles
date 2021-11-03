@@ -1,0 +1,9 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = neilSiao
+	email = neil.hsiao@104.com.tw 
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[commit]
+	template = /Users/neil.hsiao/setting/customGit/.gitmessage.txt
