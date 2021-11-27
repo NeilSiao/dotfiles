@@ -63,3 +63,10 @@ source "$ZSH_CUSTOM/themes/neil.p10k.zsh-theme"
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 #export PATH="/usr/local/opt/php@7.4/bin:$PATH"
 #export PATH="/usr/local/opt/php@7.4/sbin:$PATH"
+
+# add cd history 
+setopt AUTO_PUSHD                  # pushes the old directory onto the stack
+setopt PUSHD_MINUS                 # exchange the meanings of '+' and '-'
+setopt CDABLE_VARS                 # expand the expression (allows 'cd -2/tmp')
+autoload -U compinit && compinit   # load + start completion
+zstyle ':completion:*:directory-stack' list-colors '=(#b) #([0-9]#)*( *)==95=38;5;12'
