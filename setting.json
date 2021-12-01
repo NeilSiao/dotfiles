@@ -1,0 +1,22 @@
+{
+    "php.validate.executablePath": "/usr/bin/php",
+    "phpcs.executablePath":
+    "/Users/neil.hsiao/.composer/vendor/bin/phpcs",
+    "phpcs.standard": "./phpcs.xml",
+    //"phpcs.autoConfigSearch": false,
+    "phpcbf.enable": true,
+    "phpcbf.executablePath": "/Users/neil.hsiao/.composer/vendor/bin/phpcbf",
+    "phpcbf.standard": "./phpcs.xml",
+    "[php]": {
+        "editor.defaultFormatter": "persoderlind.vscode-phpcbf"
+    },
+    "liveServer.settings.port": 5500,
+    // "search.useIgnoreFiles" : false, // search git ignore file
+    "php.suggest.basic": false,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "workbench.colorTheme": "Monokai",
+    "phpunit.files": "{test,tests}/**/*Test.php",
+    "namespaceResolver.sortAlphabetically": true,
+    "editor.rulers": [80, 120],
+}
