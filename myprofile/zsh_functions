@@ -95,5 +95,8 @@ function killevidpod()
      mount_smbfs //neil.hsiao@172.19.1.21/linuxap/linuxap0$1 /Users/neil.hsiao/gitRepo/104/apVolumn/linuxap0$1
  }
 
+ function timezsh() {
+     for i in $(seq 1 3); do /usr/bin/time ${1-$SHELL} -i -c exit; done
+ }
 source $ZSH_CUSTOM/functions/develop_flows
 source $ZSH_CUSTOM/functions/docker

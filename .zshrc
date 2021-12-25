@@ -3,10 +3,10 @@ export LANG=en_US.UTF-8
 export RCREPO="setting"
 export PROFILE="$HOME/$RCREPO/myprofile"
 HISTFILE="${HOME}/.zsh_history"
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=1000
+SAVEHIST=1000
 ZSH_CUSTOM="$HOME/$RCREPO/myprofile"
-source $ZSH_CUSTOM/zsh_bootstrap;
+source $ZSH_CUSTOM/zsh_bootstrap; 
 
 
 
@@ -53,8 +53,8 @@ export PATH="/Users/neil.hsiao/work/104-ap/gradle-4.10.3/bin:$PATH"
 #export PATH="/usr/local/opt/php@7.1/sbin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+# [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+# [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # add my own zsh-theme
 source "$ZSH_CUSTOM/themes/neil.p10k.zsh-theme"
